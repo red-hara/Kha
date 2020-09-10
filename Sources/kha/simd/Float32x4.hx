@@ -5,7 +5,7 @@ import kha.FastFloat;
 #if cpp
 @:unreflective
 @:structAccess
-@:include("Kore/Simd/float32x4.h")
+@:include("khalib/float32x4.h")
 @:native("Kore::float32x4")
 extern class Float32x4 {
 	@:native("Kore::float32x4")
@@ -99,17 +99,18 @@ class Float32x4 {
 	}
 	
 	public static inline function getFast(t: Float32x4, index: Int): FastFloat {
+		var value: FastFloat = 0;
 		switch (index) {
 		case 0:
-			return t._0;
+			value = t._0;
 		case 1:
-			return t._1;
+			value = t._1;
 		case 2:
-			return t._2;
+			value = t._2;
 		case 3:
-			return t._3;
+			value = t._3;
 		}
-		return 0;
+		return value;
 	}
 	
 	public static inline function abs(t: Float32x4): Float32x4 {
